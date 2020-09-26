@@ -8,27 +8,26 @@
     <title>Sign Up Form by Colorlib</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="{% static 'reg\fonts/material-icon/css/material-design-iconic-font.min.css ' %}">
-    <link rel="stylesheet" href="{% static 'reg\vendor/nouislider/nouislider.min.css ' %}">
+    <link rel="stylesheet" href="{% static 'reg/fonts/material-icon/css/material-design-iconic-font.min.css ' %}">
+    <link rel="stylesheet" href="{% static 'reg/vendor/nouislider/nouislider.min.css ' %}">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="{% static 'reg\css/style.css ' %}">
+    <link rel="stylesheet" href="{% static 'reg/css/style.css ' %}">
 </head>
 <body>
-
     <div class="main">
-
         <div class="container">
             <div class="signup-content">
                 <div class="signup-img">
-                    <img src="{% static 'reg\images/form-img.jpg' %}" alt="">
+                    <img src="{% static 'reg/images/form-img.jpg' %}" alt="">
                     <div class="signup-img-content">
                         <h2>Register now </h2>
-                        <p>while seats are available !</p>
+                        <p>Stay Connected To The World..!</p>
                     </div>
                 </div>
-                <div class="signup-form">
-                    <form method="POST" class="register-form" id="register-form">
+                <div class="signup-form">  
+                    <form action="{% url 'register' %}" method="POST" class="register-form" id="register-form">
+                        {%csrf_token%}
                         <div class="form-row">
                             <div class="form-group">
                                 <div class="form-input">
@@ -39,10 +38,7 @@
                                     <label for="last_name" class="required">Last name</label>
                                     <input type="text" name="last_name" id="last_name" />
                                 </div>
-                                <div class="form-input">
-                                    <label for="company" class="required">Company</label>
-                                    <input type="text" name="company" id="company" />
-                                </div>
+                                
                                 <div class="form-input">
                                     <label for="email" class="required">Email</label>
                                     <input type="text" name="email" id="email" />
@@ -51,68 +47,82 @@
                                     <label for="phone_number" class="required">Phone number</label>
                                     <input type="text" name="phone_number" id="phone_number" />
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-select">
-                                    <div class="label-flex">
-                                        <label for="meal_preference">meal preference</label>
-                                        <a href="#" class="form-link">Lunch detail</a>
-                                    </div>
-                                    <div class="select-list">
-                                        <select name="meal_preference" id="meal_preference">
-                                            <option value="Vegetarian">Vegetarian</option>
-                                            <option value="Kosher">Kosher</option>
-                                            <option value="Asian Vegetarian">Asian Vegetarian</option>
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="form-radio">
                                     <div class="label-flex">
-                                        <label for="payment">Payment Mode</label>
-                                        <a href="#" class="form-link">Payment Detail</a>
+                                        <label for="gender">Gender</label>
+                                        <!-- <a href="#" class="form-link">Payment Detail</a> -->
                                     </div>
                                     <div class="form-radio-group">            
                                         <div class="form-radio-item">
-                                            <input type="radio" name="payment" id="cash" checked>
-                                            <label for="cash">Cash</label>
+                                            <input type="radio" name="gender" id="male" checked>
+                                            <label for="male">Male</label>
                                             <span class="check"></span>
                                         </div>
                                         <div class="form-radio-item">
-                                            <input type="radio" name="payment" id="cheque">
-                                            <label for="cheque">Cheque</label>
+                                            <input type="radio" name="gender" id="female">
+                                            <label for="female">Female</label>
                                             <span class="check"></span>
                                         </div>
                                         <div class="form-radio-item">
-                                            <input type="radio" name="payment" id="demand">
-                                            <label for="demand">Demand Draf</label>
+                                            <input type="radio" name="gender" id="other">
+                                            <label for="other">Other</label>
                                             <span class="check"></span>
                                         </div>
                                     </div>
+                                    <div class="form-select">
+                                        <div class="label-flex">
+                                            <label for="user_type">User Type</label>
+                                            <!-- <a href="#" class="form-link">Lunch detail</a> -->
+                                        </div>
+                                        <div class="select-list">
+                                            <select name="meal_preference" id="meal_preference">
+                                                <option value="Vendor">Vendor</option>
+                                                <option value="delivery boy">Delivery boy</option>
+                                                <option value="customer">Customer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                               
+                                <div class="form-input">
+                                    <label for="addresh" class="required">Address</label>
+                                    <input type="text" name="address" id="address" />
+                                </div>
+                                
+                                <div class="form-input">
+                                    <label for="city">City</label>
+                                    <input type="text" name="city" id="city" />
                                 </div>
                                 <div class="form-input">
-                                    <label for="chequeno">DD / Cheque No.</label>
-                                    <input type="text" name="chequeno" id="chequeno" />
+                                    <label for="state">state</label>
+                                    <input type="text" name="state" id="state" />
                                 </div>
                                 <div class="form-input">
-                                    <label for="blank_name">Drawn on ( Bank Name)</label>
-                                    <input type="text" name="blank_name" id="blank_name" />
+                                    <label for="picode">Pincode</label>
+                                    <input type="text" name="pincode" id="pincode" />
                                 </div>
                                 <div class="form-input">
-                                    <label for="payable">Payable at</label>
-                                    <input type="text" name="payable" id="payable" />
+                                    <label for="password">password</label>
+                                    <input type="text" name="password" id="password" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="conform password">conform password</label>
+                                    <input type="text" name="conformpassword" id="conformpassword" />
                                 </div>
                             </div>
                         </div>
-                        <div class="donate-us">
+                        <!-- <div class="donate-us">
                             <label>Donate us</label>
                             <div class="price_slider ui-slider ui-slider-horizontal">
                                 <div id="slider-margin"></div>
                                 <span class="donate-value" id="value-lower"></span>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-submit">
                             <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
-                            <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
+                            <!-- <input type="submit" value="Reset" class="submit" id="reset" name="reset" /> -->
                         </div>
                     </form>
                 </div>
@@ -122,11 +132,11 @@
     </div>
 
     <!-- JS -->
-    <script src="{% static 'reg\vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'reg\vendor/nouislider/nouislider.min.js' %}"></script>
-    <script src="{% static 'reg\vendor/wnumb/wNumb.js' %}"></script>
-    <script src="{% static 'reg\vendor/jquery-validation/dist/jquery.validate.min.js' %}"></script>
-    <script src="{% static 'reg\vendor/jquery-validation/dist/additional-methods.min.js' %}"></script>
-    <script src="{% static 'reg\js/main.js' %}"></script>
+    <script src="{% static 'reg/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'reg/vendor/nouislider/nouislider.min.js' %}"></script>
+    <script src="{% static 'reg/vendor/wnumb/wNumb.js' %}"></script>
+    <script src="{% static 'reg/vendor/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'reg/vendor/jquery-validation/dist/additional-methods.min.js' %}"></script>
+    <script src="{% static 'reg/js/main.js' %}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

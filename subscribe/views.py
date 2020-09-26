@@ -5,9 +5,18 @@ def index(request):
     return  render(request,'index.html')
 def register(request):
     if request.method=="POST":
-        name = request.POST['name']
-        passwd = request.POST['password']
-        user = User.objects.create_user(username=name,password=passwd)
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone_number = request.POST['phone_number']
+        gender = request.POST['gender']
+        user_type = request.POST['user_type']
+        addresh = request.POST['addresh']
+        city = request.POST['city']
+        state = request.POST['state']
+        pincode = request.POST['pincode']
+        password = request.POST['password']
+        user = User.objects.create_user(username=first_name,password=password)
         user.save()
         return redirect(index)
     else:
