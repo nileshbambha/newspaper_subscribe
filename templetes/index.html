@@ -1,8 +1,16 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>hello</title>
 </head>
 <body>
-    hello
+    {% if user.is_authenticated%}
+        {{user}}    
+        <a href="{% url 'logout' %}">logout</a>
+    {%else%}
+        <a href="{% url 'login'  %}">login</a>
+        <a href="{% url 'register' %}">register</a>
+    {%endif%}
+    
 </body>
 </html>
