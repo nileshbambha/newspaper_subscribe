@@ -20,8 +20,13 @@ def login(request):
         if user is not None:
             auth.login(request,user)
             return redirect(index)
+        else:
+            inv = "invalid username and password"
+            return render(request,'login.html',{'inv' : inv })
+            inv = None
     else :
-        return render(request,'login.html')
+        inv = None
+        return render(request,'login.html',{'inv' : inv})
 def logout(request):
     auth.logout(request)
     return redirect(index)

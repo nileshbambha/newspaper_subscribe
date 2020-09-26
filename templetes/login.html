@@ -52,22 +52,21 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-					
+
+					{% if inv != None %}
+						<div class="text-center p-t-12">
+							<span class="txt1">
+								invalid username and password
+							</span>
+						</div>
+					{% endif %}
+
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Login
 						</button>
 					</div>
-
-					<!-- <div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
-					</div> -->
-
+					
 					<div class="text-center p-t-136">
 						<a class="txt2" href="register">
 							Create your Account
@@ -97,7 +96,7 @@
 		})
 	</script>
 <!--===============================================================================================-->
-	<script src="js/main.js'  %}"></script>
+	<script src="{% static 'js/main.js'  %}"></script>
 
 </body>
 </html>
