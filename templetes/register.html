@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>Sign Up</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="{% static 'reg/fonts/material-icon/css/material-design-iconic-font.min.css ' %}">
@@ -28,6 +28,7 @@
                 <div class="signup-form">  
                     <form action="{% url 'register' %}" method="POST" class="register-form" id="register-form">
                         {%csrf_token%}
+                       
                         <div class="form-row">
                             <div class="form-group">
                                 <div class="form-input">
@@ -75,7 +76,7 @@
                                             <!-- <a href="#" class="form-link">Lunch detail</a> -->
                                         </div>
                                         <div class="select-list">
-                                            <select name="meal_preference" id="meal_preference">
+                                            <select name="user_type" id="user_type">
                                                 <option value="Vendor">Vendor</option>
                                                 <option value="delivery boy">Delivery boy</option>
                                                 <option value="customer">Customer</option>
@@ -87,8 +88,8 @@
                             <div class="form-group">
                                
                                 <div class="form-input">
-                                    <label for="addresh" class="required">Address</label>
-                                    <input type="text" name="address" id="address" />
+                                    <label for="address" class="required">Address</label>
+                                    <input type="text" name="address" id="address_id" />
                                 </div>
                                 
                                 <div class="form-input">
@@ -108,8 +109,8 @@
                                     <input type="text" name="password" id="password" />
                                 </div>
                                 <div class="form-input">
-                                    <label for="conform password">conform password</label>
-                                    <input type="text" name="conformpassword" id="conformpassword" />
+                                    <label for="confirm password">confirm password</label>
+                                    <input type="text" name="confirmpassword" id="confirmpassword" />
                                 </div>
                             </div>
                         </div>
@@ -130,6 +131,7 @@
         </div>
 
     </div>
+    {{form}}
 
     <!-- JS -->
     <script src="{% static 'reg/vendor/jquery/jquery.min.js' %}"></script>
